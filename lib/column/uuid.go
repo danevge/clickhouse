@@ -83,7 +83,7 @@ func swap(src []byte) []byte {
 
 func uuid2bytes(str string) ([]byte, error) {
 	var uuid [16]byte
-	if str[8] != '-' || str[13] != '-' || str[18] != '-' || str[23] != '-' {
+	if len(str) != 36 || str[8] != '-' || str[13] != '-' || str[18] != '-' || str[23] != '-' {
 		return nil, ErrInvalidUUIDFormat
 	}
 	for i, x := range [16]int{

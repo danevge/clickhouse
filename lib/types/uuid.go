@@ -51,7 +51,7 @@ func (str *UUID) Scan(v interface{}) error {
 
 func uuid2bytes(str string) ([]byte, error) {
 	var uuid [16]byte
-	if str[8] != '-' || str[13] != '-' || str[18] != '-' || str[23] != '-' {
+	if len(str) != 36 || str[8] != '-' || str[13] != '-' || str[18] != '-' || str[23] != '-' {
 		return nil, InvalidUUIDFormatError
 	}
 	for i, x := range [16]int{
